@@ -33,10 +33,17 @@
     <Content Include="orange.png" />
     <Content Include="green.png" />
     <Content Include="red.png" />
+    <Content Include="src\Views\CatStats\Bar Gauge.vue" />
+    <Content Include="src\Views\CatStats\CategoriesStat.vue" />
+    <Content Include="src\Views\CatStats\Gauge.vue" />
+    <Content Include="src\Views\CatStats\main.js" />
+    <Content Include="src\Views\Home\Bubble.vue" />
+    <Content Include="src\Views\Home\Dashboard.vue" />
     <Content Include="src\Views\Home\Home.vue" />
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Content Include="src\Views\Home\main.js" />
+    <Content Include="src\Views\Home\Polar.vue" />
     <Content Include="src\Views\MyCollegues\Polar.vue" />
     <Content Include="src\Views\MyCollegues\main.js" />
     <Content Include="src\Views\MyCollegues\MyCollegues.vue">
@@ -48,6 +55,12 @@
     <Content Include="src\Views\MyStats\MyStats.vue">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="src\Views\Questionnaire\main.js" />
+    <Content Include="src\Views\Questionnaire\Questionnaire.vue" />
+    <Content Include="src\Views\WIP\Bubble.vue" />
+    <Content Include="src\Views\WIP\Line.vue" />
+    <Content Include="src\Views\WIP\main.js" />
+    <Content Include="src\Views\WIP\WIP.vue" />
     <Content Include="vue-graph.js" />
     <Content Include="vue.config.js">
       <SubType>Code</SubType>
@@ -59,11 +72,14 @@
     <Folder Include="public\" />
     <Folder Include="src\" />
     <Folder Include="src\assets\" />
+    <Folder Include="src\Views\CatStats\" />
     <Folder Include="src\Views\MyCollegues\" />
     <Folder Include="src\Views\MyStats\" />
     <Folder Include="src\Views\Home\" />
     <Folder Include="src\components\" />
     <Folder Include="src\Views\" />
+    <Folder Include="src\Views\Questionnaire\" />
+    <Folder Include="src\Views\WIP\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="babel.config.js" />

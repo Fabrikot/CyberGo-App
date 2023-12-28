@@ -35,14 +35,12 @@
             const valav = this.valueaverage * 33;
             this.widthbarquestion = `${valq}%`
             this.widthbaraverage = `${valav}%`
-            console.log(this.widthbaraverage)
         },
         mounted() {
             const valq = this.valuequestion * 33;
             const valav = this.valueaverage * 33;
             this.widthbarquestion = `${valq}%`
             this.widthbaraverage = `${valav}%`
-            console.log(this.widthbaraverage)
         },
         data() {
             return {
@@ -123,7 +121,7 @@
         color: inherit;
         font-size: 14px;
         padding: 0px;
-        top: -24px;
+        top: -25px;
     }
 
     .skill1 {

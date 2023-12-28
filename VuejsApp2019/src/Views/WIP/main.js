@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import App from '@/Views/Home/Dashboard.vue';
+import App from '@/Views/WIP/WIP.vue';
 
 Vue.config.productionTip = true;
 

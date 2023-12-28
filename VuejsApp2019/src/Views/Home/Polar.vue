@@ -2,6 +2,7 @@
     <div v-if="load">
         <meta charset="utf-8" />
         <PolarArea :chart-options="chartOptions"
+                   :active-user="activeUser"
                    :chart-data="chartData"
                    :chart-id="chartId"
                    :dataset-id-key="datasetIdKey"
@@ -69,8 +70,12 @@
                 required: true
             },
             chartId: {
-                type: String,
-                default: 'polar-chart'
+                type: Number,
+                default: 0
+            },
+            activeUser: {
+                type: Number,
+                required: true
             },
             datasetIdKey: {
                 type: String,
@@ -94,26 +99,28 @@
             }
          },
         methods: {
-            addData(label, newData) {
+            addData(label, newData) {   //unused atm
                 this.chartData.labels.push(label);
                 this.chartData.datasets[0].data.push(newData);
                 //this.chartOptions.scales.r.pointLabels.color = 'red';
             },
             onupdate() {
-                if (this.load != true) {
+                if (this.load != true) {    //to start the animation when scrolled into
                     this.load = true;
                 }
             },
             handleclic(evt, array) {
                 if (array.length != 0) {
-                    var position = array[0].index;
+                    var position = this.chartData.datasets[0].categ[array[0].index];
+                    console.log(position)
                     var nbdataset = this.chartData.datasets[0].label
-                    var val = this.chartData.datasets[0].data[position]
+                    var val = this.chartData.datasets[0].data[array[0].index]
+                    var currentuser = this.activeUser
                     /*var activeElement = this.tooltip.dataPoints[0].label 
                     var test = this.chartOptions.scales.r.pointLabels*/
-                    var payload = { posi: position, datasetindex: nbdataset, value: val};
-                    localStorage.setItem('clickinfo', JSON.stringify(payload))
-                    window.location='/mystats'
+                    var payload = { posi: position, datasetindex: nbdataset, value: val, actuser:currentuser};
+                    localStorage.setItem('clickinfo', JSON.stringify(payload))      //temporary solution to store the info of what was clicked
+                    window.location='/category'
                 } else {
                     console.log("You selected the background!");
                 }
@@ -125,12 +132,14 @@
                     if (this.lastHover != position) {
                         this.lastHover = position
                         for (let i = 0; i < this.chartData.datasets[0].dataweight.length; i++) {
-                            this.chartData.datasets[0].dataweight[i] = 400;
+                            this.chartData.datasets[0].dataweight[i] = 400; //when not hovered return to normal
                         }
                     }
                     else {
-                        this.chartData.datasets[0].dataweight[position] = 600
-                        this.$emit('lasthover',position)
+                        if (this.chartData.datasets[0].dataweight[position] == 400) {
+                            this.chartData.datasets[0].dataweight[position] = 600;  //changes the text hovered to bold text
+                            this.$emit('lasthover', position)
+                        }
                     }
                 }
 
@@ -147,7 +156,7 @@
                         arc: {
                             backgroundColor: colorize.bind(null, false, false),
                             borderColor: colorize.bind(null, false, false),
-                            hoverBackgroundColor: hoverColorize,
+                            hoverBackgroundColor: hoverColorize,    //call the function
                         }
                     },
                     onClick: this.handleclic,

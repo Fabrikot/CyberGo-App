@@ -1,27 +1,33 @@
 module.exports = {
     pages: {
-        index: {
+        Home: {
             entry: 'src/Views/Home/main.js',
-            title: 'Index Page',
+            title: 'Home Page',
             filename: 'home.html'
         },
-        mystats: {
-            entry: 'src/Views/MyStats/main.js',
-            title: 'MyStats',
-            filename: 'MyStats.html'
+        Categories: {
+            entry: 'src/Views/CatStats/main.js',
+            title: 'Categories',
+            filename: 'category.html'
         },
-        mymenu: {
-            entry: 'src/Views/MyCollegues/main.js',
-            title: 'MyCollegues',
-            filename: 'MyCollegues.html'
+        Questionnaire: {
+            entry: 'src/Views/Questionnaire/main.js',
+            title: 'Questionnaire',
+            filename: 'questionnaire.html'
+        },
+        WIP: {
+            entry: 'src/Views/WIP/main.js',
+            title: 'WIP',
+            filename: 'wip.html'
         }
     },
     devServer:  {
         historyApiFallback: {
             rewrites: [
-                { from: /\home/, to: '/home.html' },
-                { from: /\/mystats/, to: '/MyStats.html' },
-                { from: /\/mymenu/, to: '/MyCollegues.html' }
+                { from: /\mymenu/, to: '/home.html' },
+                { from: /\/category/, to: '/category.html' },
+                { from: /\/category/, to: '/questionnaire.html' },
+                { from: /\/wip/, to: '/wip.html' }
 
             ]
         }

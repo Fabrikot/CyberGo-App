@@ -10,7 +10,7 @@
         mounted() {
             const percentageAsFraction = this.  percentage / 100
             const halfPercentage = percentageAsFraction / 2
-            this.cssTransformRotateValue = `${halfPercentage}turn`
+            this.cssTransformRotateValue = `${halfPercentage}turn` //add the value used for the animation
         },
         data() {
             return {
@@ -26,7 +26,7 @@
 
     <div class="gauge__outer">
         <div class="gauge__inner">
-            <div class="gauge__fill" :style="{ transform: `rotate(${cssTransformRotateValue})` }"></div>
+            <div class="gauge__fill" :style="{ transform: `rotate(${cssTransformRotateValue})` }"></div> 
             <div class="gauge__cover">
                 {{ percentage.toFixed(0) }}%
             </div>
